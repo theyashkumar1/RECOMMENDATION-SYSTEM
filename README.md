@@ -40,21 +40,21 @@ After merging these datasets, we drop unused columns (genres, timestamp) and foc
 
 
 
-🎬 Movie Recommendation System using Collaborative Filtering
+Movie Recommendation System using Collaborative Filtering
 
 This project presents a personalized movie recommendation system built using collaborative filtering techniques. It utilizes the MovieLens dataset and applies item-item similarity based on Pearson correlation to recommend movies similar to those the user has rated in the past.
 
-📌 Objective
+=>Objective
 
 The primary goal of this project is to build a recommendation engine that can suggest movies to users based on their previous preferences. Instead of relying on content-based information like genres or actors, this system focuses on how users rate movies, identifying patterns and relationships between different movies through collaborative filtering. More specifically, this project implements memory-based item-item collaborative filtering.
 
-🧠 How it Works
+=>How it Works
 
 This recommendation system follows the principle of collaborative filtering, where recommendations are based on the idea that if users rate certain items similarly, they may have similar preferences for other items as well.
 
 Here's a breakdown of the pipeline:
 
-🔹 1. Data Loading and Merging
+ 1. Data Loading and Merging
 
 The system uses two datasets:
 
@@ -64,7 +64,7 @@ movies.csv: Contains movie metadata such as movieId, title, and genres.
 
 These datasets are merged to form a comprehensive dataset containing userId, movieId, title, and rating.
 
-🔹 2. Pivot Table Creation
+ 2. Pivot Table Creation
 
 The merged dataset is transformed into a pivot table with:
 
@@ -76,7 +76,7 @@ Values as the ratings given by users
 
 This forms a user-movie matrix, which is essential for computing correlations between different movies.
 
-🔹 3. Filtering Sparse Data
+ 3. Filtering Sparse Data
 
 To reduce noise and improve reliability:
 
@@ -86,11 +86,11 @@ Remaining NaN values are filled with 0 to ensure consistent matrix structure.
 
 This filtering step ensures that recommendations are based on reliable and sufficient data points.
 
-🔹 4. Similarity Calculation
+ 4. Similarity Calculation
 
 Using the filtered pivot table, Pearson correlation is calculated between every pair of movies. This produces a correlation matrix, where each value indicates how similarly two movies are rated by users.
 
-🔹 5. User Preference Simulation
+ 5. User Preference Simulation
 
 To simulate a real user, a list of movies and ratings is created manually,
 action_lover = [
@@ -102,7 +102,7 @@ action_lover = [
 
 Each movie’s similarity vector is adjusted by the rating given by the user (centered around 2.5), and all such vectors are aggregated to determine the most relevant movies.
 
-🔹 6. Generating Recommendations
+ 6. Generating Recommendations
 
 All similarity vectors are concatenated and summed. The result is a ranked list of movie recommendations, with higher scores indicating stronger relevance to the user’s preferences.
 
@@ -116,7 +116,7 @@ Wanted
 
 Mission: Impossible III
 
-📈 Technologies Used
+=> Technologies Used
 Python
 
 Pandas: Data manipulation
@@ -125,7 +125,7 @@ NumPy: Numeric operations
 
 scikit-learn: Similarity computation
 
-💡 Why Collaborative Filtering?
+=> Why Collaborative Filtering?
 
 Collaborative filtering offers the advantage of not needing metadata like genres or actor lists. Instead, it learns patterns purely from user behavior, making it flexible and adaptive to different domains. This model is particularly useful when:
 
